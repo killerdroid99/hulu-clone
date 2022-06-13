@@ -1,20 +1,16 @@
 import Image from "next/image";
 import { ThumbUpIcon, StarIcon } from "@heroicons/react/outline";
-import { forwardRef } from "react";
 
-const Thumbnail = forwardRef(({ result }, ref) => {
-	console.log(result);
+function Thumbnail({ result }) {
 	const BASE_URL = "https://image.tmdb.org/t/p/original";
 	return (
-		<div
-			ref={ref}
-			className="group cursor-pointer hover:scale-105 hover:z-50 min-w-40 transition-all ease-in-out bg-[#02171f] rounded-md shadow-black shadow-md overflow-hidden"
-		>
+		<div className="group cursor-pointer hover:scale-105 hover:z-50 min-w-40 transition-all ease-in-out bg-[#02171f] rounded-md shadow-black shadow-md overflow-hidden">
 			<Image
 				layout="responsive"
 				src={`${BASE_URL}/${result.backdrop_path || result.poster_path}`}
 				height={1080}
 				width={1920}
+				alt={`${result.backdrop_path || result.poster_path}`}
 			/>
 			<div className="p-2">
 				<p className="truncate max-w-md">{result.overview}</p>
@@ -33,6 +29,6 @@ const Thumbnail = forwardRef(({ result }, ref) => {
 			</div>
 		</div>
 	);
-});
+}
 
 export default Thumbnail;
