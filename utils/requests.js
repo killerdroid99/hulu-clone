@@ -1,6 +1,6 @@
 const API_KEY = process.env.API_KEY;
 
-export default [
+const requests = [
 	{
 		id: 1,
 		title: "Trending",
@@ -57,3 +57,5 @@ export default [
 		url: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
 	},
 ];
+
+export default requests;
